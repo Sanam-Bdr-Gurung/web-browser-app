@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA7798DD2C6E567200C19496 /* web browser app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "web browser app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA7798DD2C6E567200C19496 /* web-browser-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "web-browser-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7798E02C6E567200C19496 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA7798E22C6E567200C19496 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CA7798E42C6E567200C19496 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		CA7798D42C6E567200C19496 = {
 			isa = PBXGroup;
 			children = (
-				CA7798DF2C6E567200C19496 /* web browser app */,
+				CA7798DF2C6E567200C19496 /* web-browser-app */,
 				CA7798DE2C6E567200C19496 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		CA7798DE2C6E567200C19496 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA7798DD2C6E567200C19496 /* web browser app.app */,
+				CA7798DD2C6E567200C19496 /* web-browser-app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CA7798DF2C6E567200C19496 /* web browser app */ = {
+		CA7798DF2C6E567200C19496 /* web-browser-app */ = {
 			isa = PBXGroup;
 			children = (
 				CA7798E02C6E567200C19496 /* AppDelegate.swift */,
@@ -64,15 +64,15 @@
 				CA7798EB2C6E567300C19496 /* LaunchScreen.storyboard */,
 				CA7798EE2C6E567300C19496 /* Info.plist */,
 			);
-			path = "web browser app";
+			path = "web-browser-app";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA7798DC2C6E567200C19496 /* web browser app */ = {
+		CA7798DC2C6E567200C19496 /* web-browser-app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA7798F12C6E567300C19496 /* Build configuration list for PBXNativeTarget "web browser app" */;
+			buildConfigurationList = CA7798F12C6E567300C19496 /* Build configuration list for PBXNativeTarget "web-browser-app" */;
 			buildPhases = (
 				CA7798D92C6E567200C19496 /* Sources */,
 				CA7798DA2C6E567200C19496 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "web browser app";
+			name = "web-browser-app";
 			productName = "web browser app";
-			productReference = CA7798DD2C6E567200C19496 /* web browser app.app */;
+			productReference = CA7798DD2C6E567200C19496 /* web-browser-app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA7798D82C6E567200C19496 /* Build configuration list for PBXProject "web browser app" */;
+			buildConfigurationList = CA7798D82C6E567200C19496 /* Build configuration list for PBXProject "web-browser-app" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA7798DC2C6E567200C19496 /* web browser app */,
+				CA7798DC2C6E567200C19496 /* web-browser-app */,
 			);
 		};
 /* End PBXProject section */
@@ -293,7 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "web browser app/Info.plist";
+				INFOPLIST_FILE = "web-browser-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -320,7 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "web browser app/Info.plist";
+				INFOPLIST_FILE = "web-browser-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -342,7 +342,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA7798D82C6E567200C19496 /* Build configuration list for PBXProject "web browser app" */ = {
+		CA7798D82C6E567200C19496 /* Build configuration list for PBXProject "web-browser-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA7798EF2C6E567300C19496 /* Debug */,
@@ -351,7 +351,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA7798F12C6E567300C19496 /* Build configuration list for PBXNativeTarget "web browser app" */ = {
+		CA7798F12C6E567300C19496 /* Build configuration list for PBXNativeTarget "web-browser-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA7798F22C6E567300C19496 /* Debug */,
