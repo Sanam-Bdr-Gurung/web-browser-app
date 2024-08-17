@@ -45,8 +45,3 @@ Welcome to the **Swift Web Browser App**! This app is a simple yet powerful web 
 ### 6. **Custom Features**
    - Implementing custom logic to block access to delisted websites, enhancing user experience and security.
 
-## 🛠️ How to Use
-
-1. **Clone the Repository**:  
-   ```bash
-   git clone https://github.com/yourusername/swift-web-browser.git
