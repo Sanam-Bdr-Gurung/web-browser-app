@@ -37,8 +37,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        let backButton = UIBarButtonItem(title: "Back", style:.plain, target: webView, action:#selector(webView.goBack))
+        let forwardButton = UIBarButtonItem(title: "Forward", style:.plain, target: webView, action:#selector(webView.goForward))
 
-        toolbarItems = [progressButton, spacer, refresh]
+        toolbarItems = [backButton,forwardButton,progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
 
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -70,15 +72,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
         if let host = url?.host {
             for website in whiteListedWebsites {
+                print(host + website);
                 if host.contains(website) {
                     decisionHandler(.allow)
                     return
-                }else{
-                    _showMessage("Restricted", "Unfortunately this site is not allowed")
                 }
             }
+            _showMessage("Restricted", "Unfortunately this site is not allowed")
         }
-      
+        
         decisionHandler(.cancel)
     }
 
