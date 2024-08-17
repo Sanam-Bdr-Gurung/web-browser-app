@@ -29,7 +29,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "urlCell", for: indexPath)
         cell.textLabel?.text = allSites[indexPath.row]
         return cell
     }
