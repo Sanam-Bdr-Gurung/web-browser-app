@@ -1,8 +1,9 @@
 //
 //  ViewController.swift
-//  web browser app
+//  Project4
 //
-//  Created by Sanam Gurung on 8/15/24.
+//  Created by TwoStraws on 13/08/2016.
+//  Copyright © 2016 Paul Hudson. All rights reserved.
 //
 
 import UIKit
@@ -11,71 +12,84 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
-    var websites = ["www.youtube.com/@nepalharmony5589","youtube.com/@sukilamavlogs"]
+
+    var whiteListedWebsites = ["apple.com", "hackingwithswift.com"]
+    var allSites = ["apple.com", "hackingwithswift.com","facebook.com"]
+
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        let url = URL(string: "https://" + whiteListedWebsites[0])!
+        webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+
         progressView = UIProgressView(progressViewStyle: .default)
         progressView.sizeToFit()
         let progressButton = UIBarButtonItem(customView: progressView)
-        
 
-        toolbarItems = [progressButton,spacer,refresh]
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+
+        toolbarItems = [progressButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
-        
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress),options: .new,context: nil)
-        
-        let url = URL(string:"https://" + websites[0])!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
+
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
-   
+
     @objc func openTapped() {
         let ac = UIAlertController(title: "Open page…", message: nil, preferredStyle: .actionSheet)
-        
-        for website in websites {
+
+        for website in allSites {
             ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
         }
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
         present(ac, animated: true)
     }
-    
+
     func openPage(action: UIAlertAction) {
         let url = URL(string: "https://" + action.title!)!
         webView.load(URLRequest(url: url))
     }
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
     }
-    
+
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        let url = navigationAction.request.url
+
+        if let host = url?.host {
+            for website in whiteListedWebsites {
+                if host.contains(website) {
+                    decisionHandler(.allow)
+                    return
+                }else{
+                    _showMessage("Restricted", "Unfortunately this site is not allowed")
+                }
+            }
+        }
+      
+        decisionHandler(.cancel)
+    }
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             progressView.progress = Float(webView.estimatedProgress)
         }
     }
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        let url = navigationAction.request.url
-        
-        if let host = url?.host {
-            for website in websites {
-                if host.contains(website){
-                    decisionHandler(.allow)
-                    return
-                }
-            }
-        }
-        decisionHandler(.cancel)
-    }
+    func _showMessage(_ title: String,_ message: String) {
+           let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default))
+           present(ac,animated: true)
+       }
 }
-
